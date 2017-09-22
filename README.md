@@ -25,3 +25,4 @@ cordova emulate ios
 ````"# DiamondRap" 
 "# AdmobAdsTest" 
 "# DiamRapCalc" 
+"# DiamRapCalc" 
