@@ -254,17 +254,17 @@
   <script type="text/javascript" src="js/index.js"></script>
   <script type="text/javascript">
     app.initialize();
-	app.startBannerAds();
-	app.requestInterstitial(true);
 	fetchprices(cmbShape.value, txtCts.value, cmbColor.value, cmbClarity.value);
 	document.getElementById("txtReportNo")
 		.addEventListener("keyup", function(event) {
 									event.preventDefault();
 									if (event.keyCode == 13) {
 										DownloadPDF(document.getElementById("txtReportNo").value);
+										app.startBannerAds();
+										app.requestInterstitial(true);
 									}
 								});
-	setTimeout(app.requestInterstitial(true), 60000);
+	//setTimeout(app.requestInterstitial(true), 60000);
   </script>
 </body>
 
