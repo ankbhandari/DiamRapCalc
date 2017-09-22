@@ -26,7 +26,7 @@
     </platform>
     <preference name="LogLevel" value="VERBOSE" />
     <preference name="debuggable" value="false" />
-    <icon src="res/icon.png" />
+    <icon src="www/res/icon.png" />
     <platform name="android">
         <icon density="ldpi" src="res/icon/android/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="res/icon/android/drawable-mdpi-icon.png" />
