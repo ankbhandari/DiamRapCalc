@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.AnkDroid.DiamondApp.Calc" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Diamond Rap Calculator</name>
+    <description>
+    AnkDroid Rap Calculator application that helps you to check for updated Rap Discount as per Updated Color or Clarity.
+  </description>
+    <author email="ank.bhandari@gmail.com" href="http://ankdroid.blogspot.com">
+        Ankit Bhandari
+    </author>
+    <content src="index.html" />
+    <preference name="DisallowOverscroll" value="true" />
+    <allow-navigation href="*" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:+919930771310" />
+    <allow-intent href="sms:+919930771310" />
+    <allow-intent href="mailto:ank.bhandari@gmail.com" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+    <preference name="LogLevel" value="VERBOSE" />
+    <preference name="debuggable" value="false" />
+    <icon src="res/icon.png" />
+    <platform name="android">
+        <icon density="ldpi" src="res/icon/android/drawable-ldpi-icon.png" />
+        <icon density="mdpi" src="res/icon/android/drawable-mdpi-icon.png" />
+        <icon density="hdpi" src="res/icon/android/drawable-hdpi-icon.png" />
+        <icon density="xhdpi" src="res/icon/android/drawable-xhdpi-icon.png" />
+        <icon density="xxhdpi" src="res/icon/android/drawable-xxhdpi-icon.png" />
+        <icon density="xxxhdpi" src="res/icon/android/drawable-xxxhdpi-icon.png" />
+    </platform>
+    <platform name="ios">
+        <icon height="57" platform="ios" src="www/res/icon/ios/icon.png" width="57" />
+        <icon height="114" platform="ios" src="www/res/icon/ios/icon@2x.png" width="114" />
+        <icon height="40" platform="ios" src="www/res/icon/ios/icon-40.png" width="40" />
+        <icon height="80" platform="ios" src="www/res/icon/ios/icon-40@2x.png" width="80" />
+        <icon height="50" platform="ios" src="www/res/icon/ios/icon-50.png" width="50" />
+        <icon height="100" platform="ios" src="www/res/icon/ios/icon-50@2x.png" width="100" />
+        <icon height="60" platform="ios" src="www/res/icon/ios/icon-60.png" width="60" />
+        <icon height="120" platform="ios" src="www/res/icon/ios/icon-60@2x.png" width="120" />
+        <icon height="180" platform="ios" src="www/res/icon/ios/icon-60@3x.png" width="180" />
+        <icon height="72" platform="ios" src="www/res/icon/ios/icon-72.png" width="72" />
+        <icon height="144" platform="ios" src="www/res/icon/ios/icon-72@2x.png" width="144" />
+        <icon height="76" platform="ios" src="www/res/icon/ios/icon-76.png" width="76" />
+        <icon height="152" platform="ios" src="www/res/icon/ios/icon-76@2x.png" width="152" />
+        <icon height="29" platform="ios" src="www/res/icon/ios/icon-small.png" width="29" />
+        <icon height="58" platform="ios" src="www/res/icon/ios/icon-small@2x.png" width="58" />
+        <icon height="87" platform="ios" src="www/res/icon/ios/icon-small@3x.png" width="87" />
+    </platform>
+    <engine name="ios" spec="~4.4.0" />
+    <engine name="android" spec="~6.2.3" />
+    <plugin name="cordova-admob" spec="^4.1.16" />
+    <plugin name="cordova-plugin-inappbrowser" spec="^1.7.1" />
+</widget>

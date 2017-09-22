@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<!--
+ index.html
+ Copyright 2014 AppFeel. All rights reserved.
+ http://www.appfeel.com
+ 
+ Google Analytics Cordova Plugin (com.analytics.adid.google)
+ 
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to
+ deal in the Software without restriction, including without limitation the
+ rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+ sell copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ 
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+ 
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
+-->
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="format-detection" content="telephone=no" />
+  <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+  <!--meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" /-->
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=device-dpi" />
+  <link rel="stylesheet" type="text/css" href="css/index.css" />
+  <meta name="msapplication-tap-highlight" content="no" />
+  <title>AdMob Ads Demo</title>
+</head>
+
+    <div class="app">
+		<table style="margin-top:15px;margin-bottom:15px;" align="center">
+			<th>
+				Report Check
+			</th>
+			<tr style="text-align:center;">
+				<td style="padding-bottom:10px;">
+					<form action="">
+						<input type="radio" name="ReportCheck" value="GIA" checked="checked"> GIA
+						<input type="radio" name="ReportCheck" value="HRD"> HRD
+						<input type="radio" name="ReportCheck" value="IGI"> IGI
+					</form>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="tel" id ="txtReportNo" value=""/>
+					<input type="button" onclick="DownloadPDF(txtReportNo.value)" value="Check Report"/>
+				</td>
+			</tr>
+		</table>
+		<table style="text-align:left; margin-top:15px; width:auto;" align="center">
+			<th colspan="2" style="text-align:center;">
+				Calculate
+			</th>
+			<tr>
+				<td>
+					Shape
+				</td>
+				<td>
+					<select style = "width: 100px" id="cmbShape" onchange="fetchprices(cmbShape.value, txtCts.value, cmbColor.value, cmbClarity.value)">
+						<option value="Round">Round</option>
+						<option value="Pear">Pear</option>
+						<option value="Pear">Marquise</option>
+						<option value="Pear">Oval</option>
+						<option value="Pear">Heart</option>
+						<option value="Pear">Cushion</option>
+						<option value="Pear">Emerlad</option>
+						<option value="Pear">Sq. Emerald</option>
+						<option value="Pear">Radiant</option>
+						<option value="Pear">Sq. Radiant</option>
+						<option value="Pear">Princess</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Color
+				</td>
+				<td>
+					<select style = "width: 100px" id="cmbColor" onchange="fetchprices(cmbShape.value, txtCts.value, cmbColor.value, cmbClarity.value)">
+						<option value="D">D</option>
+						<option value="E">E</option>
+						<option value="F">F</option>
+						<option value="G">G</option>
+						<option value="H">H</option>
+						<option value="I">I</option>
+						<option value="J">J</option>
+						<option value="K">K</option>
+						<option value="L">L</option>
+						<option value="M">M</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Clarity
+				</td>
+				<td>
+					<select style = "width: 100px" id="cmbClarity" onchange="fetchprices(cmbShape.value, txtCts.value, cmbColor.value, cmbClarity.value)">
+						<option value="IF">FL</option>
+						<option value="IF">IF</option>
+						<option value="VVS1">VVS1</option>
+						<option value="VVS2">VVS2</option>
+						<option value="VS1">VS1</option>
+						<option value="VS2">VS2</option>
+						<option value="SI1">SI1</option>
+						<option value="SI2">SI2</option>
+						<option value="I1">I1</option>
+						<option value="I2">I2</option>
+						<option value="I3">I3</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Carats
+				</td>
+				<td>
+					<input type="decimal" value="1.01" id="txtCts" style = "width: 100px" onblur="fetchprices(cmbShape.value, txtCts.value, cmbColor.value, cmbClarity.value)"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Rap Price
+				</td>
+				<td>
+					<input type="number" value="0.00" disabled="true" id="txtRapPrice" style = "width: 100px; background-color: #bbff00;"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Rap %
+				</td>
+				<td>
+					<input type="decimal" value="30.00" id="txtRapPer" onblur="fetchprices(cmbShape.value, txtCts.value, cmbColor.value, cmbClarity.value)" style = "width: 100px"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					$/Cts.
+				</td>
+				<td>
+					<input type="number" value="0.00" disabled="true" id="txtPrice" style = "width: 100px; background-color: #bbff00;"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					$ Amt.
+				</td>
+				<td>
+					<input type="number" value="0.00" disabled="true" id="txtAmount" style = "width: 100px; background-color: #bbff00;"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Is Upgradable
+				</td>
+				<td>
+					<form action="ShowHideUpgrade()" style = "width: 100px">
+						<input type="radio" name="isUpgradable" value="Yes" onclick="ShowHideUpgrade(this)"> Yes
+						<input type="radio" name="isUpgradable" value="No"  onclick="ShowHideUpgrade(this)" checked="checked"> No
+					</form>
+				</td>
+			</tr>
+			<tr id="UpgradeColor" style="display:none">
+				<td>
+					Upgraded Color
+				</td>
+				<td>
+					<select style = "width: 100px" id="cmbUpColor">
+						<option value="D">D</option>
+						<option value="E">E</option>
+						<option value="F">F</option>
+						<option value="G">G</option>
+						<option value="H">H</option>
+						<option value="I">I</option>
+						<option value="J">J</option>
+						<option value="K">K</option>
+						<option value="L">L</option>
+						<option value="M">M</option>
+					</select>
+				</td>
+			</tr>
+			<tr id="UpgradeClarity" style="display:none;">
+				<td>
+					Upgraded Clarity
+				</td>
+				<td>
+					<select style = "width: 100px" id="cmbUpClarity">
+						<option value="IF">FL</option>
+						<option value="IF">IF</option>
+						<option value="VVS1">VVS1</option>
+						<option value="VVS2">VVS2</option>
+						<option value="VS1">VS1</option>
+						<option value="VS2">VS2</option>
+						<option value="SI1">SI1</option>
+						<option value="SI2">SI2</option>
+						<option value="I1">I1</option>
+						<option value="I2">I2</option>
+						<option value="I3">I3</option>
+					</select>
+				</td>
+			</tr>
+			<tr id="RepCts">
+				<td>
+					After Rep. Cts.
+				</td>
+				<td>
+					<input type="decimal" value="0.00" id="txtRepCts" onblur="CalRepPrice()" style = "width: 100px"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					After Rep. Rap Price
+				</td>
+				<td>
+					<input type="decimal" value="0.00" disabled="true" id="txtRRapPrice" style = "width: 100px; background-color: #bbff00;"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					After Rep. $/Cts.
+				</td>
+				<td>
+					<input type="decimal" value="0.00" disabled="true" id="txtRPrice" style = "width: 100px; background-color: #bbff00;"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					After Rep. Rap %
+				</td>
+				<td>
+					<input type="decimal" value="0.00" disabled="true" id="txtRRepPer" style = "width: 100px; background-color: #bbff00; font-weight: bold; color: #ff0000;"/>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" style="text-align: center;">
+					<input type="button" value="Calculate" onclick="CalRepPrice()"/>
+				</td>
+			</tr>
+		</table>
+    </div>
+  <script type="text/javascript" src="cordova.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript">
+    app.initialize();
+	app.startBannerAds();
+	app.requestInterstitial(true);
+	fetchprices(cmbShape.value, txtCts.value, cmbColor.value, cmbClarity.value);
+	document.getElementById("txtReportNo")
+		.addEventListener("keyup", function(event) {
+									event.preventDefault();
+									if (event.keyCode == 13) {
+										DownloadPDF(document.getElementById("txtReportNo").value);
+									}
+								});
+	setTimeout(app.requestInterstitial(true), 60000);
+  </script>
+</body>
+
+</html>

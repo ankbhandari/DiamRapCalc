@@ -1,0 +1,22 @@
+{
+    "name": "com.appfeel.admob.test",
+    "version": "0.0.1",
+    "displayName": "AdMobTest",
+    "cordova": {
+        "platforms": [
+            "android",
+            "ios"
+        ],
+        "plugins": {
+            "cordova-admob": {},
+            "cordova-inappbrowser": {}
+        }
+    },
+    "dependencies": {
+        "cordova-admob": "^4.1.16",
+        "cordova-connectivity-monitor": "^1.2.2",
+        "cordova-inappbrowser": "^1.0.6",
+        "cordova-ios": "~4.4.0",
+        "cordova-libgoogleadmobads": "git+https://github.com/appfeel/google-iosadmobads.git"
+    }
+}
